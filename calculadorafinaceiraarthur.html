@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Inteligente</title>
+</head>
+
+<body>
+    <div>
+        <h1>Ticket médio e taxa de conversão</h1>
+        Inserir total de pessoas que entraram na loja: <input type="text" id="input_total">
+        <br><br>
+        Inserir total de vendas realizada no dia: <input type="text" id="input_vendas">
+        <br><br>
+        Inserir valor total de vendas realizada no dia: <input type="text" id="input_valor">
+        <br><br>
+        <button onclick="calcular ()">Calcular ticket e conversão</button>
+        <br><br>
+        <div id="div_mensagem"></div>
+    </div>
+    <div>
+        <h1>Média de clientes por setor</h1>
+        Inserir quantidade total de clientes: <input type="text" id="input_totalclientes">
+        <br><br>
+        Inserir quantidade de setores: <input type="text" id="input_setores">
+        <br><br>
+        Inserir horas de trabalho: <input type="text" id="input_horas">
+        <br><br>
+        <button onclick="exibir ()">Calcular Média</button>
+        <br><br>
+        <div id="div_mensagem1"></div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    function calcular() {
+        var total = Number(input_total.value)
+        var vendas = Number(input_vendas.value)
+        var valor = Number(input_valor.value)
+        var ticket = valor / vendas
+        var taxa = vendas / total * 100
+        div_mensagem.innerHTML = `O ticket médio gasto por pessoa é de R$${ticket.toFixed(2)}. A taxa de conversão da loja foi de ${taxa}%`
+    }
+
+    function exibir() {
+        var total = Number(input_totalclientes.value)
+        var setores = Number(input_setores.value)
+        var horas = Number(input_horas.value)
+        var média = total / (horas * setores)
+        div_mensagem1.innerHTML = `A média de clientes em cada setor por hora é de ${média}`
+    }
+</script>
