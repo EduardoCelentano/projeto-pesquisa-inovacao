@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Calculadora financeira para loja/supermercado</title>
 </head>
 <body>
@@ -10,17 +10,17 @@
 <h2><b>Calculadora financeira para loja/supermercado</b></h2>
 <h4>Por: Samara Mendonça</h4>
 
-Qual o seu faturamento: <input type="number" id="input_faturamento"> <br><br>
+Qual o seu faturamento: <input type="number" id="input_faturamento"> <br><br>  
 
 Número de Vendas/mês: <input type="number" id="input_vendas"> <br><br>
 
 Dias de funcionamento/mês: <input type="number" id="input_dias"> <br><br>
     
-Custo fixo mensal (R$): <input type="number" id="input_custo_fixo"> <br><br>
+Custo fixo mensal (em R$): <input type="number" id="input_custo_fixo"> <br><br>
 
-Custo variável (%): <input type="number" id="input_custo_variavel"> <br><br>
+Custo variável (em %): <input type="number" id="input_custo_variavel"> <br><br>
 
-Investimento inicial (R$): <input type="number" id="input_investimento"> <br><br>
+Investimento inicial (em R$): <input type="number" id="input_investimento"> <br><br>
 
 <button onclick="simular()">Calcular Simulador Financeiro</button> <br><br>
 
@@ -38,11 +38,11 @@ var custoFixo = Number(input_custo_fixo.value)
 var custoVariavel = Number(input_custo_variavel.value)
 var investimento = Number(input_investimento.value)
 
+var ticket = faturamento / vendas
 
 var clientesPorMes = faturamento / ticket
 var clientesPorDia = clientesPorMes / dias
 
-var ticket = faturamento / vendas
 
 var valorCustoVariavel = (custoVariavel / 100) * faturamento
         
