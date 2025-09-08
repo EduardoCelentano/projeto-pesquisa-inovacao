@@ -10,9 +10,9 @@
 <h2><b>Calculadora financeira para loja/supermercado</b></h2>
 <h4>Por: Samara Mendonça</h4>
 
-Qual o seu faturamento real: <input type="number" id="input_faturamento"> <br><br>
+Qual o seu faturamento: <input type="number" id="input_faturamento"> <br><br>
 
-Ticket médio (Faturamento Total / Número de Vendas): <input type="number" id="input_ticket"> <br><br>
+Número de Vendas/mês: <input type="number" id="input_vendas"> <br><br>
 
 Dias de funcionamento/mês: <input type="number" id="input_dias"> <br><br>
     
@@ -24,7 +24,7 @@ Investimento inicial (R$): <input type="number" id="input_investimento"> <br><br
 
 <button onclick="simular()">Calcular Simulador Financeiro</button> <br><br>
 
-<div id="div_simulador"></div>
+<div id="div_simulador"></div> <br><br>
 
 </body>
 </html>
@@ -32,7 +32,7 @@ Investimento inicial (R$): <input type="number" id="input_investimento"> <br><br
 <script>
 function simular() {
 var faturamento = Number(input_faturamento.value)
-var ticket = Number(input_ticket.value)
+var vendas = Number(input_vendas.value)
 var dias = Number(input_dias.value)
 var custoFixo = Number(input_custo_fixo.value)
 var custoVariavel = Number(input_custo_variavel.value)
@@ -41,7 +41,9 @@ var investimento = Number(input_investimento.value)
 
 var clientesPorMes = faturamento / ticket
 var clientesPorDia = clientesPorMes / dias
-        
+
+var ticket = faturamento / vendas
+
 var valorCustoVariavel = (custoVariavel / 100) * faturamento
         
 var lucroBruto = faturamento - valorCustoVariavel
@@ -56,6 +58,7 @@ div_simulador.innerHTML =
 
 `O número de clientes compradores/mês é de ${clientesPorMes.toFixed(0)}. <br>
 O número de clientes compradores/dia é de ${clientesPorDia.toFixed(0)}. <br>
+Assim, seu Ticket médio sendo de ${ticket.toFixed(2)}.
 Seu lucro bruto é de R$ ${lucroBruto.toFixed(2)}, e o seu lucro líquido é de R$ ${lucroLiquido.toFixed(2)}. <br>
 Sua margem de lucro é de ${margemLucro.toFixed(2)}%. <br>
 O retorno do seu investimento (payback) é em aproximadamente ${payback.toFixed(1)} meses.<br><br>
