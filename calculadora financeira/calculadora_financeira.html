@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+
+    Calculadora Financeira <br><br>
+
+    <div>
+        Setor: <input id="input_setor" type="text">
+    </div>
+
+    <div>
+        Fluxo no Setor: <input id="input_fluxoSetor" type="number">
+    </div>
+
+    <div>
+        Quantidade de Compras no Setor: <input id="input_compraSetor" type="number">
+    </div>
+
+    <div>
+        Faturamento do Setor (R$): <input id="input_vendasSetor" type="number">
+    </div>
+
+    <div>
+        Fluxo no Estabelecimento Comercial: <input id="input_fluxoTotal" type="number">
+    </div>
+
+    <div>
+        Quantidade de Compras no Estabelecimento Comercial: <input id="input_compraEstabelecimento" type="number">
+    </div>
+
+    <div>
+        Faturamento Diário (R$): <input id="input_vendasTotal" type="number">
+    </div>
+
+    <button onclick="Setor()">Analisar Setor</button>
+
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function Setor() {
+
+        var setor = input_setor.value;
+        var fluxoSetor = Number(input_fluxoSetor.value);
+        var vendasSetor = Number(input_vendasSetor.value);
+        var compraSetor = Number(input_compraSetor.value);
+        var fluxoTotal = Number(input_fluxoTotal.value);
+        var vendasTotal = Number(input_vendasTotal.value);
+        var proporcaoSetores = fluxoSetor * 100 / fluxoTotal;
+        var proporcaoVendas = vendasSetor * 100 / vendasTotal;
+        var proporcaoCompraSetor = compraSetor / fluxoSetor * 100;
+
+        div_mensagem.innerHTML = 
+        ` O setor "${setor}" teve um fluxo de ${fluxoSetor} pessoas, o que corresponde a ${proporcaoSetores}% do fluxo total de pessoas que entraram no estabelecimento <br>
+        Esse setor teve um faturamento de R$${vendasSetor}! Esse valor é equivalente a ${proporcaoVendas}% do faturamento diário do estabelecimento. <br>
+        A proporção de pessoas que entram e compram no setor é de ${proporcaoCompraSetor}% <br>`;
+    }
+
+</script>
