@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <b><h1>Calculadora de Perdas de Vendas</h1></b> <br>
+
+    Insira a média de clientes por dia:          
+    <input type="text" id="input_media"><br><br>
+    Insira o Ticket médio (média de gasto por cliente):
+    <input type="text" id="input_ticket"> <br><br>
+
+    <button onclick="Calcular()">Calcular</button><br><br>
+
+    <div id="div_mensagem"></div>
+
+
+</body>
+</html>
+<script>
+function Calcular() {
+    var media_clientes = Number(input_media.value);
+    var ticket = Number(input_ticket.value);
+    var taxa_abandono = 0.4; //40% de clientes que saem sem comprar nada, segundo pesquisa.
+    var clientes_perdidos = media_clientes * taxa_abandono;
+    var perda_vendas = clientes_perdidos * ticket;
+
+    div_mensagem.innerHTML = `O total de perdas de vendas do seu negócio por dia é de R$${perda_vendas.toFixed(2)}<br>
+                            Chegamos nesse resultado pegando a média de clientes (${media_clientes}) <br> 
+                            multiplicando pela taxa de abandono de 40% segundo pesquisas do mercado,<br>
+                            Resultando na média de clientes Perdidos igual a (${clientes_perdidos}),<br>
+                             totalizando nas perdas de venda igual a ${perda_vendas.toFixed(2)}.`;
+}
+
+</script>
